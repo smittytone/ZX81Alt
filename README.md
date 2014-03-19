@@ -17,26 +17,38 @@ Please refer to a picture of the ZX81 keyboard (http://smittytone.files.wordpres
 Note _ indicates no key action, however the key E in Symbol mode WILL generate an underscore
 
 
+
 No Shift
 
 1 2 3 4 5 6 7 8 9 0
+
 q w e r t y u i o p
+
 a s d f g h j k l NewLine
+
 z x c v b n m . Space
+
 
 
 Shift
 
 Escape _ _ _ _ LEFT DOWN UP RIGHT _ Backspace
+
 Q W E R T Y U I O P
+
 A S D F G H J K L SymbolSelect
+
 Z X C V B N M , #
+
 
 
 Symbol Mode
 
 [ ] { } LEFT DOWN UP RIGHT ! Backspace
+
 " _ underscore \ ^ % $ ( ) "
+
 @ | ~ _ _ * - + = NewLine
+
 : ; ? / * < > ' #
 
