@@ -31,7 +31,7 @@ byte keyMap[NUM_ROWS][NUM_COLS] =
   {'b', 'n', 'm', '.', ' '}
 };
 
-// Keymap if Shift is pressed 
+// Keymap if Shift is pressed
 
 byte keyMapShifted[NUM_ROWS][NUM_COLS] =
 {
