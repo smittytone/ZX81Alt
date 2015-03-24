@@ -5,8 +5,6 @@
 // Modified with Function keys by Tony Smith
 // 2014-02-15
 
-// My version
-
 #define NUM_ROWS 8
 #define NUM_COLS 5
 
@@ -28,7 +26,7 @@ byte keyMap[NUM_ROWS][NUM_COLS] = {
 byte keyMapShifted[NUM_ROWS][NUM_COLS] = {
   {KEY_LEFT_ARROW, '$', '\\', '@', KEY_ESC}, 
   {'T', 'R', 'E', 'W', 'Q'}, 
-  {KEY_DOWN_ARROW, KEY_UP_ARROW, KEY_RIGHT_ARROW, 0, KEY_BACKSPACE}, 
+  {KEY_DOWN_ARROW, KEY_UP_ARROW, KEY_RIGHT_ARROW, KEY_F6, KEY_BACKSPACE}, 
   {'G', 'F', 'D', 'S', 'A'}, 
   {'Y', 'U', 'I', 'O', 'P'},
   {'V', 'C', 'X', 'Z', 0}, 
@@ -41,14 +39,15 @@ byte keyMapShifted[NUM_ROWS][NUM_COLS] = {
 
 byte keyMapAlt[NUM_ROWS][NUM_COLS] = {
   {KEY_LEFT_ARROW , '}' , '{' , ']' , '['}, 
-  {'=' , '<' , 0 , '~' , '\"'}, 
+  {'=' , '<' , 0 , '~' , 64}, 
   {KEY_DOWN_ARROW, KEY_UP_ARROW, KEY_RIGHT_ARROW, KEY_F6, KEY_BACKSPACE}, 
-  {0 , 0 , 0 , '|' , '@'}, 
+  {0 , 0 , 0 , '|' , 156}, 
   {'>', '$', '(', ')', '\"'},
   {'/', '?', ';', ':', 0}, 
   {'_', '-', '+', '=', KEY_RETURN},
-  {'*', '<', '>', '\'', ' '}
+  {'*', '<', '>', '\'', '#'}
 };
+
 
 // Global variables
 
@@ -214,9 +213,26 @@ void pressKey(byte r, byte c, bool shifted)
     debounceCount[r][c] = 0;
   }
   
+  if (key == KEY_F6)
+  {
+    ctrlKeyFlag = 255;
+    key = 0;
+    debounceCount[r][c] = 0;
+  }
+
   if (key > 0)
   {
     // send the key
+    
+    if (ctrlKeyFlag == 255)
+    {
+      ctrlKeyFlag = 0;
+      Keyboard.press(KEY_LEFT_CTRL);
+      Keyboard.press(key);
+      delay(100);
+      Keyboard.releaseAll();
+      return;
+    }
     
     Keyboard.write(key);
   }
