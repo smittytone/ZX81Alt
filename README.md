@@ -1,5 +1,5 @@
-ZX81Alt
-=======
+# ZX81Alt
+
 
 This software runs on an Arduino Leonardo board connected to the keyboard of a Sinclair ZX81 home computer, converting the device into a USB keyboard.
 
@@ -12,8 +12,7 @@ A number of now-important symbols were omitted from the ZX81 keyboard. These hav
 Note: whether you get the # or the Sterling symbol will depend upon your host system's own keyboard localisation settings.
 
 
-The Keys
---------
+##The Keys
 
 Please refer to a picture of the ZX81 keyboard (http://smittytone.files.wordpress.com/2014/02/p1020039.jpg?w=810)
 
